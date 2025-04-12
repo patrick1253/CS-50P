@@ -17,13 +17,14 @@ def main():
     print(interpret(formula))
     print(alt_interpret(formula))
 
+# This works, but per StackOverflow "eval" is considered unsafe.  
+
 def interpret(f):
     x = int(f[0])
     y = f[1]
     z = int(f[2])
     return(float(eval(f"{x} {y} {z}")))
 
-# The above works, but per StackOverflow "eval" is considered unsafe.  
 # Here is an alternative, using "import operator":
 
 import operator
