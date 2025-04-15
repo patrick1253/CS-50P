@@ -9,21 +9,22 @@ def main():
 
 def insert_coin():
     total = 0
-    while total < 50:
+    while total < cost:
         coin = input("Please deposit one 5 cent, 10 cent, or 25 cent coin: ")
         if coin in(accepted_coins):
             total += int(coin)
-            if total <= 50:
-                print(f"Amount Due: {50 - total}")
+            if total <= cost:
+                print(f"Amount Due: {cost - total}")
         else:
-            print(f"Amount Due: {50 - total}")
+            print(f"Amount Due: {cost - total}")
     return total
     
 accepted_coins = ['5', '10', '25']
+cost = 50
 
 def change_due():
     total = insert_coin()
-    change = total - 50
+    change = total - cost
     print(f"Change Due: {change}")
 
 main()
