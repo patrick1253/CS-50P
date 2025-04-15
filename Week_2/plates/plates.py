@@ -54,6 +54,7 @@ def check_valid(text):
         if char in string.punctuation:
             is_valid *= 0
             print("Invalid: Cannot include punctuation marks")
+            return is_valid
 
         if char.isalpha():
             letters_count += 1
