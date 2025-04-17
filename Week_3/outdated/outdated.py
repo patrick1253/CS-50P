@@ -9,14 +9,11 @@
 # whether a month has 28, 29, 30, or 31 days.
 
 def main():
-    date = input("Enter a date in MM/DD/YYYY or MONTH DD, YYYY format: ")
-    MEdate = convert_MEdate(date)
-    print(MEdate)
+    #date = input("Enter a date in MM/DD/YYYY or MONTH DD, YYYY format: ")
+    ISOdate = convert_MEdate()
+    print(ISOdate)
 
-# Converts MONTH DD, YYYY format to MM/DD/YYYY format
-
-def make_MEdate(date):
-    months = {    
+months = {    
     "January":1,
     "February":2,
     "March":3,
@@ -29,7 +26,11 @@ def make_MEdate(date):
     "October":10,
     "November":11,
     "December":12}
-   
+
+# Converts MONTH DD, YYYY format to MM/DD/YYYY format
+
+def make_MEdate():
+    date = input("Enter a date in MM/DD/YYYY or MONTH DD, YYYY format: ")
 
     if date[0].isnumeric():
         MEdate = date
@@ -45,13 +46,14 @@ def make_MEdate(date):
     else:
         return
 
-def convert_MEdate(date):
-    MEdate = make_MEdate(date)
-    ISOdate = MEdate.split(sep='/')
+def convert_MEdate():
+    MEdate = make_MEdate()
+    MEdate = MEdate.split(sep='/')
     
     # To just change oder in which columns are printed
-    return(f"{ISOdate[2].zfill(4)}-{ISOdate[0].zfill(2)}-{ISOdate[1].zfill(2)}")
-    
+    ISOdate = (f"{MEdate[2].zfill(4)}-{MEdate[0].zfill(2)}-{MEdate[1].zfill(2)}")
+    return ISOdate
+
     # To reorder columns:
     #temp = MEdate[0]
     #MEdate[0] = MEdate[2]
