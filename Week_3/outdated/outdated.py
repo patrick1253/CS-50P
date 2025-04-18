@@ -30,22 +30,27 @@ months = {
 # Converts MONTH DD, YYYY format to MM/DD/YYYY format
 
 def make_MEdate():
-    date = input("Enter a date in MM/DD/YYYY or MONTH DD, YYYY format: ")
+    while True:
+        date = input("Enter a date in MM/DD/YYYY or MONTH DD, YYYY format: ")
 
-    if date[0].isnumeric():
-        MEdate = date
-        return MEdate
-    else:
-        date = date.split(sep=' ')
+        if date[0].isnumeric():
+            MEdate = date
+            return MEdate
+        else:
+            date = date.split(sep=' ')
 
-    if date[0] in months:
-        date[0] = months[date[0]]
-        date[1] = date[1][:-1]
-        MEdate = (f"{date[0]}/{date[1]}/{date[2]}")
-        return(MEdate)
-    else:
-        return
-
+        if date[0] in months:
+            date[0] = months[date[0]]
+            date[1] = date[1][:-1]
+        else:
+            return
+        
+        if int(date[1]) < 31:
+            MEdate = (f"{date[0]}/{date[1]}/{date[2]}")
+            return(MEdate)
+        else:
+            return
+    
 def convert_MEdate():
     MEdate = make_MEdate()
     MEdate = MEdate.split(sep='/')
