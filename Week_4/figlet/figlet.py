@@ -20,9 +20,10 @@ from pyfiglet import Figlet
 def main():
     make_figlet()
 
-# From the command line interface, the program should be called using -f or --font
+# From the command line interface, the program should be called using "-f" or "--font"
 # followed by the name of the desired font (eg: "python figlet.py -f slant").  
-# Leaving these blank will result in a random choice of font.
+# Leaving one of these blank will result in an error.  Leaving both of these blank 
+# will result in a random choice of font.
 
 def make_figlet():
     figlet = Figlet()
@@ -30,10 +31,15 @@ def make_figlet():
 
     if len(sys.argv) == 1:
         figlet.setFont(font = random.choice(fonts))
+    
     elif len(sys.argv) == 2 or sys.argv[1] not in ["-f", "--font"]:
         sys.exit("Input -f or --font, followed by the name of the desired font")
-    else:
+    
+    elif len(sys.argv) == 3 and sys.argv[2] in fonts:
         figlet.setFont(font = sys.argv[2])
+    else:
+        sys.exit("Input -f or --font, followed by the name of the desired font")
+
 
     text = input("Desired text: ")                 
     print(figlet.renderText(text))
