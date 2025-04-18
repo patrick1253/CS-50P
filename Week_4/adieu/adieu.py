@@ -13,7 +13,7 @@ p = inflect.engine()
 
 def main():
     print(list_names())
-    #print(list_names_alt1())
+    #print(list_names_alt())
 
 def list_names():
     names = []
@@ -30,7 +30,7 @@ def list_names():
     
 # Alternative way, by importing "inflect":
 
-def list_names_alt1():
+def list_names_alt():
     names = []
     while True:
         try:
