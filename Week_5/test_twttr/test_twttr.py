@@ -8,7 +8,7 @@
 # test_ so that you can execute your tests with: "pytest test_twttr.py"
 
 from twttr_buggy import shorten
-import pytest
+#import pytest
 
 #def main():
 
