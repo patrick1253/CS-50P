@@ -9,4 +9,16 @@
 # test your implementation of value thoroughly, each of whose names should begin with test_ 
 # so that you can execute your tests with: "pytest test_bank.py"
 
+from bank import value
 
+
+def test_value_hello():
+    assert value("hello") == 0
+
+
+def test_value_hi():
+    assert value("hi") == 20
+
+
+def test_value_morning():
+    assert value("good morning") == 100
