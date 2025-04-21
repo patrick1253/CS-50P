@@ -7,13 +7,23 @@
 # test your implementation of shorten thoroughly, each of whose names should begin with 
 # test_ so that you can execute your tests with: "pytest test_twttr.py"
 
-from twttr import shorten
+from twttr_buggy import shorten
+import pytest
 
-def main():
+#def main():
 
-def test_shorten():
-    
+def test_shorten_lowercase():
+    word = "this is a test message in all lower case"
+    assert shorten(word) == "ths s  tst mssg n ll lwr cs"
+
+def test_shorten_uppercase():
+    word = "THIS IS A TEST MESSAGE IN ALL UPPER CASE"
+    assert shorten(word) == "THS S  TST MSSG N LL PPR CS"
+
+def test_shorten_numeric_str():
+    word = "12345"
+    assert shorten(word) == "12345"
 
 
-if __name__=="__main__":
-    main()
+#if __name__=="__main__":
+#    main()

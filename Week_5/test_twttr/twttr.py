@@ -13,7 +13,7 @@ def main():
 
 
 def shorten(word):
-    vowels = ["a","e","i","o","u","A", "E", "I" "O", "U"]
+    vowels = ["a","e","i","o","u","A", "E", "I", "O", "U"]
     no_vowels = []
 
     for char in word:
