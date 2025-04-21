@@ -12,7 +12,7 @@ def value(greeting):
     if "hello" in greeting:
         return int(0)
     elif greeting[0] =="h":
-        return int(200)
+        return int(20)
     return int(100)
 
 if __name__ == "__main__":
