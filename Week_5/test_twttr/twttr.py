@@ -8,9 +8,8 @@
 # test_ so that you can execute your tests with: "pytest test_twttr.py"
 
 def main():
-    shorten(input("Type a brief text message: "))
-    no_vwl_msg = "".join(no_vowels)
-    print(no_vwl_msg)
+    word = shorten(input("Type a brief text message: "))
+    print(shorten(word))
 
 
 def shorten(word):
@@ -21,6 +20,9 @@ def shorten(word):
         if char not in vowels:
             no_vowels.append(char)
 
+    no_vwl_msg = "".join(no_vowels)
+    return no_vwl_msg
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     main()

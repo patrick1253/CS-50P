@@ -7,13 +7,22 @@
 # test your implementation of shorten thoroughly, each of whose names should begin with 
 # test_ so that you can execute your tests with: "pytest test_twttr.py"
 
-from twttr import shorten
-
 def main():
+    word = shorten(input("Type a brief text message: "))
+    print(shorten(word))
 
-def test_shorten():
-    
+# Deliberate bug introduced (no upper case vowels included) to use in test_twttr.py
+def shorten(word):
+    vowels = ["a","e","i","o","u"]
+    no_vowels = []
+
+    for char in word:
+        if char not in vowels:
+            no_vowels.append(char)
+
+    no_vwl_msg = "".join(no_vowels)
+    return no_vwl_msg
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     main()
