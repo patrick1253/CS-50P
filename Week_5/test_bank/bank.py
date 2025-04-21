@@ -4,15 +4,15 @@
 # whitespace in the user’s greeting, and treat the user’s greeting case-insensitively.
 
 def main(): 
-    print(f"${hello()}")
-
-def hello():
     greeting = input("Please type a greeting: ").strip().lower()
+    print(f"${value(greeting)}")
+
+def value(greeting):
     
     if "hello" in greeting:
         return int(0)
     elif greeting[0] =="h":
-        return int(20)
+        return int(200)
     return int(100)
 
 if __name__ == "__main__":
