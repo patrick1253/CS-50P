@@ -21,27 +21,27 @@ def main():
 # Converts a fraction input as string X/Y to an integer between 0 and 100 and returns that integer.
 
 def convert(frac):
-    while True:
+    #while True:
         #frac = input("Enter a fraction as X/Y, where X > Y and both are integers: ")
-        X = frac.split('/')[0]
-        Y = frac.split('/')[1]
-        
-        try: 
-            X = int(X)
-            Y = int(Y)
-        except ValueError:
-            raise ValueError("X and Y must be integer numbers")
+    X = frac.split('/')[0]
+    Y = frac.split('/')[1]
+    
+    try: 
+        X = int(X)
+        Y = int(Y)
+    except ValueError:
+        raise ValueError("X and Y must be integer numbers")
+    else:
+        try:
+            pct = int((X/Y)*100)
+        except ZeroDivisionError:
+            raise ZeroDivisionError ("Y cannot be zero")
         else:
-            try:
-                pct = int((X/Y)*100)
-            except ZeroDivisionError:
-                raise ZeroDivisionError ("Y cannot be zero")
+            if X > Y:
+                raise ValueError ("X must be less than Y") 
             else:
-                if X > Y:
-                    raise ValueError ("X must be less than Y") 
-                else:
-                    #return(pct)
-                    return gauge(pct)
+                #return(pct)
+                return gauge(pct)
 
 def gauge(pct):
     #pct = convert()
