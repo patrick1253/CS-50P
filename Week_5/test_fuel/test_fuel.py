@@ -15,7 +15,40 @@
 # test_ so that you can execute your tests with: "pytest test_fuel.py"
 
 import fuel
+import pytest
 
 def test_convert_float():
-    assert convert(3.5) == "ValueError"
+    with pytest.raises(ValueError):
+        fuel.convert("3.5/5")
 
+
+def test_convert_Xgreater():
+    with pytest.raises(ValueError):
+        fuel.convert("6/5")
+
+
+def test_convert_Yzero():
+    with pytest.raises(ZeroDivisionError):
+        fuel.convert("4/0")
+
+
+def test_convert_notInt():
+    with pytest.raises(ValueError):
+        fuel.convert("m/5")
+
+
+def test_gauge_notInt():
+    with pytest.raises(ValueError):
+        fuel.convert("3.5/5")
+
+
+def test_convert_fullTank():
+    assert fuel.convert("99/100") == "F"
+
+
+def test_convert_emptyTank():
+    assert fuel.convert("1/100") == "E"
+
+
+def test_convert_correct():
+    assert fuel.convert("3/4") == "75%"
