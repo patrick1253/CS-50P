@@ -13,15 +13,16 @@
 #Receives percentage as integer; prints that fraction as a string formatted as a percentage
 
 def main():
-    pct = gauge()
+    frac = input("Enter a fraction as X/Y, where X > Y and both are integers: ")
+    pct = convert(frac)
     print(pct)
 
 
 # Converts a fraction input as string X/Y to an integer between 0 and 100 and returns that integer.
 
-def convert():
+def convert(frac):
     while True:
-        frac = input("Enter a fraction as X/Y, where X > Y and both are integers: ")
+        #frac = input("Enter a fraction as X/Y, where X > Y and both are integers: ")
         X = frac.split('/')[0]
         Y = frac.split('/')[1]
         
@@ -39,10 +40,11 @@ def convert():
                 if X > Y:
                     raise ValueError ("X must be less than Y") 
                 else:
-                    return(pct)
+                    #return(pct)
+                    return gauge(pct)
 
-def gauge():
-    pct = convert()
+def gauge(pct):
+    #pct = convert()
     
     try: 
         pct = int(pct)
