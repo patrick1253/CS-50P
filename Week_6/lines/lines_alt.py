@@ -11,13 +11,11 @@ import sys
 
 def main():
     filename = sys.argv[1:]
-    line_count = lines(filename)
+    line_count = valid_file(filename)
     print(f"Number of lines in {filename[0]}: {line_count}")
 
-def lines(filename):
-    
-    line_count = 0
-    
+def valid_file(filename):
+
     if (len(filename)) > 1:
         sys.exit("Too many command-line arguments")
     else:
@@ -31,13 +29,19 @@ def lines(filename):
     try:
         file = open(filename, "r")
     except FileNotFoundError:
-        sys.exit("File does not exist")  
+        sys.exit("File does not exist")
+    else:
+        return count_lines(file)
+
+
+def count_lines(file):
+    line_count = 0
     
     for line in file:
-        if line.lstrip() == "#":
-            pass
-        elif line in ["\n", "\t", "\r\n", "\n\r", "\t\n", "\t\r", "\t\n\r", "\t\r\n"]: # i.e. if line is blank
-            pass
+        if line.lstrip().startswith("#"):
+            continue
+        elif not line.strip():  # i.e. if line is blank
+            continue
         else:
             line_count += 1
     
