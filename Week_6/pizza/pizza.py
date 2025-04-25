@@ -7,29 +7,37 @@
 
 from tabulate import tabulate
 import sys
+import csv
 
 def main():
-    menu = sys.argv[1:]
-    print(make_table(menu))
+    filename = sys.argv[1:]
+    print(make_table(filename))
 
-def make_table(menu):
+def make_table(filename):
 
-    if len(menu) > 1:
+    menu = []
+
+    if len(filename) > 1:
         sys.exit("Too many CLI arguments")
+    elif len(filename) < 1:
+        sys.exit("Too few CLI arguments")
     else:
-        menu = menu[0]
+        filename = filename[0]
 
-    suffix = menu.split('.')[-1]
+    suffix = filename.split('.')[-1]
 
     if suffix != "csv":
         sys.exit("Not a CSV file")
 
     try:
-        file = open(menu, "r")
+        with open(filename) as file:
+            reader = csv.reader(file)
+            for row in reader:
+                menu.append(row)
     except FileNotFoundError:
         sys.exit("File does not exist")
     else:
-        return tabulate(menu, grid)
+        return tabulate(menu, headers="firstrow", tablefmt="grid")
     
 if __name__ == "__main__":
     main()
