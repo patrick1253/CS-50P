@@ -9,7 +9,10 @@ import pytest
 
 def main():
     test_convert_hourOver12()
-
+    test_convert_minOver59()
+    test_convert_noAMPM()
+    test_convert_noMins()
+    test_convert_correct()
 
 def test_convert_hourOver12():
     with pytest.raises(SystemExit):
