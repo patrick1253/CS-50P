@@ -16,10 +16,13 @@ def main():
 
 
 def count(s):
-    
     match_list = []
-    if matches := re.findall(r"[\s, \,\s]*um[\,, \s]", s, re.IGNORECASE):
-    #if matches := re.findall(r"\bum\b", s, re.IGNORECASE):
+
+    # this search fails in certain edge cases:
+    # if matches := re.findall(r"[\s, \,\s]*um[\,, \s]", s, re.IGNORECASE):
+    
+    # using \b works -- search for border between \w and \W or vice versa:
+    if matches := re.findall(r"\bum\b", s, re.IGNORECASE):
         for match in matches:
             match_list.append(matches)
     return len(match_list)
