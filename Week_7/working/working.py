@@ -23,8 +23,11 @@ def main():
 
 def convert(s):
 
-    times = re.search(r"^(.*)\sto\s(.*)$", s)
-    start, end = times.groups()
+    if "to" in s:
+        times = re.search(r"^(.*)\sto\s(.*)$", s)
+        start, end = times.groups()
+    else:
+        sys.exit("Please enter in format time 'TO' time")
 
     list = [start, end]
     times = []
