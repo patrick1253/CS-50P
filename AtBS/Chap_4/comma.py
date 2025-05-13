@@ -22,8 +22,6 @@ def main():
 def convert_list(items):
     if type(items) == str:
         items = items.split()
-    else:
-        items = *
 
     match len(items):
         case 0:
