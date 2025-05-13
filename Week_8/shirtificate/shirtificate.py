@@ -39,7 +39,8 @@ class PDF():
         self._pdf.set_font_size(30)
 
         text = f"{prompt} took CS50"
-        self._pdf.text(x = 60, y = 140, text = text)
+        #self._pdf.text(x = 60, y = 140, text = text)
+        self._pdf.cell(0, 260, text = text, align = "C", center=True)
         
         self._pdf.output("patrick_shirt.pdf")
 
